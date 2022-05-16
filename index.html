@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <title>Team Rockstars - Special agents - Mark Bertels</title>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('/background.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+a {
+  color: orange;
+}
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    
+  </div>
+  <div class="middle">
+    <h1>Special agents</h1>
+    <h2 id='chosen'>COMING SOON - <a href='https://forms.gle/xaHCmoPj8CuHGXDK6'>Vote here</a></h2>
+    <hr>
+    <p id="counter" style="font-size:30px"></p>
+    <p id="video" style="font-size:30px"><iframe width="960" height="540" src="https://www.youtube.com/embed/hZMm7h1RtXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+  </div>
+  <div class="bottomleft">
+    
+  </div>
+</div>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jun 1, 2022 00:00:00").getTime();
+var showVideo = false;
+  var chosen = [
+"David de Hoop",
+"David Vlijmincx",
+"Wouter Everse",
+"Jessy The",
+"Tugay Uzinli",
+"Duco Fronik",
+"Bart van Nierop",
+"Ron Veen",
+"Oscar van der Leij",
+"Mark Bertels"]
+updateView();
+// Update the count down every 1 second
+var countdownfunction = setInterval(updateView, 1000);
+
+function updateView(){
+    // Get todays date and time
+  var now = new Date().getTime();
+  
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+  
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  document.getElementById("counter").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(countdownfunction);
+    document.getElementById("chosen").innerHTML = "The chosen ones are:"
+    document.getElementById("counter").innerHTML = chosen.join("<br />");
+    clearInterval(1000);
+    document.getElementById("video").innerHTML = '';
+  }
+}
+
+</script>
+
+</body>
+</html>
